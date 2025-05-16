@@ -1,0 +1,42 @@
+html {
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode",
+    Geneva, Verdana, sans-serif;
+}
+
+div {
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 550px;
+  height: 600px;
+  border-radius: 20px;
+  background-color: #def;
+}
+
+label {
+  font-size: 1.3rem;
+  margin: 0 0 10px 0px;
+}
+
+#text-input {
+  width: 400px;
+  height: 300px;
+}
+#char-count {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: -200px;
+  width: 200px;
+  height: 35px;
+  background-color: white;
+}
