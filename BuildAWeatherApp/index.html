@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div id="container-Main">
+      <p id="location">Location</p>
+      <div id="display-top">
+        <div id="display-left">
+          <div id="main-temperature">Temp:</div>
+          <div id="humidity">Humidity:</div>
+          <div id="wind-gust">Wind gust:</div>
+        </div>
+
+        <div id="display-right">
+          <div id="weather">
+            <div id="icon"><img id="weather-icon" /></div>
+            <div id="weather-main">Weather main:</div>
+          </div>
+          <div id="wind">
+            <div id="wind-speed">Wind speed:</div>
+            <div id="feels-like">Feels like:</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="display-bottom">
+        <label for="select-city">Weather Forcast For:</label>
+        <select id="select-city" title="Select a city for the weather forecast">
+          <option value=""></option>
+          <option value="New York">New York</option>
+          <option value="Los Angeles">Los Angeles</option>
+          <option value="Chicago">Chicago</option>
+          <option value="Paris">Paris</option>
+          <option value="Tokyo">Tokyo</option>
+          <option value="London">London</option>
+        </select>
+        <button type="button" id="get-forecast">Get Forecast</button>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>

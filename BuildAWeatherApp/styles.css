@@ -1,0 +1,180 @@
+html {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  font-family: sans-serif;
+}
+
+body {
+  width: 100%;
+  min-width: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: lightblue;
+}
+
+#container-Main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 900px;
+  min-width: 700px;
+  height: 700px;
+  border-radius: 20px;
+  background-color: lightgrey;
+}
+#location {
+  display: none;
+  font-size: 2rem;
+  color: white;
+  background-color: black;
+  border-radius: 20px;
+  height: 50px;
+  width: 200px;
+  text-align: center;
+  align-content: center;
+}
+
+#display-top {
+  font-size: 0.9rem;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 700px;
+  height: 350px;
+  margin-bottom: 20px;
+  background-color: black;
+  border-radius: 20px;
+}
+
+#display-right {
+  align-content: space-evenly;
+  justify-content: center;
+  flex-direction: column;
+  width: 400px;
+  height: 300px;
+}
+
+#display-left {
+  align-content: space-evenly;
+  justify-content: center;
+  flex-direction: column;
+  width: 200px;
+  height: 300px;
+}
+
+#main-temperature {
+  text-align: center;
+  align-content: center;
+  height: 30px;
+  width: 150px;
+  margin: 0px 0 0 30px;
+  border: 1px solid;
+  border-radius: 10px;
+  color: white;
+}
+
+#humidity {
+  text-align: center;
+  align-content: center;
+  height: 30px;
+  width: 150px;
+  margin: 50px 0 0 30px;
+  border: 1px solid;
+  border-radius: 10px;
+  color: white;
+}
+
+#wind-gust {
+  text-align: center;
+  align-content: center;
+  height: 30px;
+  width: 160px;
+  margin: 60px 0 0 30px;
+  border: 1px solid;
+  border-radius: 10px;
+  color: white;
+}
+
+#weather {
+  display: none;
+  text-align: center;
+  height: 140px;
+  color: white;
+}
+
+#wind {
+  display: none;
+  text-align: center;
+  height: 140px;
+  color: white;
+}
+
+#icon {
+  width: 200px;
+  height: 30px;
+  align-content: center;
+  margin: 40px 0 0 70px;
+  border: 1px solid;
+  border-radius: 10px;
+}
+#weather-main {
+  width: 150px;
+  height: 30px;
+  align-content: center;
+  margin: 40px 0px 0 10px;
+  border: 1px solid;
+  border-radius: 10px;
+}
+
+#wind-speed {
+  width: 170px;
+  height: 30px;
+  align-content: center;
+  margin: 70px 0 0px 20px;
+  border: 1px solid;
+  border-radius: 10px;
+}
+#feels-like {
+  width: 180px;
+  height: 30px;
+  align-content: center;
+  margin: 70px 0 0px 35px;
+  border: 1px solid;
+  border-radius: 10px;
+}
+
+#display-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 700px;
+  height: 50px;
+  background-color: white;
+  border-radius: 20px;
+}
+
+label {
+  margin-right: 30px;
+}
+#select-city {
+  height: 30px;
+  width: 150px;
+}
+
+button:hover {
+  background-color: #acd;
+}
+
+button {
+  margin-left: 10px;
+  height: 30px;
+  width: 100px;
+  background-color: #cdd;
+  border: none;
+  border-radius: 10px;
+}

@@ -1,0 +1,45 @@
+{
+  "coord": {
+    "lon": -74.0059,
+    "lat": 40.7127
+  },
+  "weather": [
+    {
+      "id": 804,
+      "main": "Clouds",
+      "description": "overcast clouds",
+      "icon": "https://cdn.freecodecamp.org/weather-icons/04d.png"
+    }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 14.33,
+    "feels_like": 13.2,
+    "temp_min": 13.21,
+    "temp_max": 15.54,
+    "pressure": 1008,
+    "humidity": 53,
+    "sea_level": 1008,
+    "grnd_level": 1007
+  },
+  "visibility": 10000,
+  "wind": {
+    "speed": 3.6,
+    "deg": 40
+  },
+  "clouds": {
+    "all": 100
+  },
+  "dt": 1732123426,
+  "sys": {
+    "type": 1,
+    "id": 4610,
+    "country": "US",
+    "sunrise": 1732103363,
+    "sunset": 1732138471
+  },
+  "timezone": -18000,
+  "id": 5128581,
+  "name": "New York",
+  "cod": 200
+}
