@@ -58,6 +58,7 @@ body {
   height: 300px;
 }
 
+/*----display left group----*/
 #display-left {
   align-content: space-evenly;
   justify-content: center;
@@ -66,6 +67,7 @@ body {
   height: 300px;
 }
 
+/*----display right----*/
 #main-temperature {
   text-align: center;
   align-content: center;
@@ -98,24 +100,24 @@ body {
   border-radius: 10px;
   color: white;
 }
-
-#weather {
-  display: none;
+/*----display right groups----*/
+#icon-weather {
+  display: flex;
   text-align: center;
   height: 140px;
   color: white;
 }
 
-#wind {
-  display: none;
+#wind-feelsLike {
+  display: flex;
   text-align: center;
   height: 140px;
   color: white;
 }
-
+/*----display right----------*/
 #icon {
-  width: 200px;
-  height: 30px;
+  width: 100px;
+  height: 40px;
   align-content: center;
   margin: 40px 0 0 70px;
   border: 1px solid;
