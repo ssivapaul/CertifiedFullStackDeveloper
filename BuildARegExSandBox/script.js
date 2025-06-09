@@ -14,43 +14,67 @@ let getFlags = () => {
 
 testButton.addEventListener("click", () => {
   let text = stringToTest.textContent.trim();
-  //const text = "Gu1n34 P1g5";
-  //const pattern = /\d+/g;
   let flags = getFlags();
   const pattern = regexPattern.value.trim();
   const regEx = new RegExp(pattern, flags);
-  let slicedString = sliceTestString(text, regEx);
 
-  testResult.textContent =
-    slicedString.length > 0
-      ? slicedString.map((str) => `${str[1]}`).join(", ")
-      : `no match`;
-
-  let highlightedHTML = slicedString
-    .map((str) => {
-      return `${str[0]}<span class="highlight">${str[1]}</span>`;
-    })
-    .join("");
+  let slicedString = [];
+  slicedString = sliceTestString(text, regEx);
+  stringToTest.innerHTML = "";
+  testResult.textContent = "";
 
   if (slicedString.length > 0) {
-    let lastMatch = slicedString[slicedString.length - 1];
-    let lastIndex = text.lastIndexOf(lastMatch[1]);
-    let remaining = text.slice(lastIndex + lastMatch[1].length);
-    highlightedHTML += remaining;
+    if (slicedString.length == 1) {
+      stringToTest.innerHTML = slicedString
+        .map((str) => {
+          return `${str[0]}<span class="highlight">${str[1]}</span>${str[2]}`;
+        })
+        .join("");
+    } else {
+      stringToTest.innerHTML = slicedString
+        .map((str) => {
+          return str[1]
+            ? `${str[0]}<span class="highlight">${str[1]}</span>`
+            : `${str[0]}`;
+        })
+        .join("");
+    }
+    let testresult = [];
+    slicedString.forEach((x) => {
+      if (x[1]) testresult.push(x[1]);
+    });
+    testResult.textContent = `${testresult.join(", ")}`;
   } else {
-    highlightedHTML = text;
+    stringToTest.innerHTML = text;
+    testResult.textContent = `no match`;
   }
-
-  stringToTest.innerHTML = highlightedHTML;
 });
 
+//She sells seashells by the seashore. /sea\s/i
 let sliceTestString = (text, regEx) => {
   let previndex = 0;
   let stringtotest = [];
-  let matches = [...text.matchAll(regEx)];
-  matches.map((x) => {
-    stringtotest.push([text.slice(previndex, x.index), x[0]]);
-    previndex = x.index + x[0].length;
-  });
+
+  if (regEx.toString().includes("g")) {
+    let matches = [...text.matchAll(regEx)];
+    if (matches) {
+      matches.map((x) => {
+        stringtotest.push([text.slice(previndex, x.index), x[0]]);
+        previndex = x.index + x[0].length;
+      });
+      if (previndex < text.length && previndex != 0) {
+        stringtotest.push([text.slice(previndex), ""]);
+      }
+    }
+  } else {
+    let match = regEx.exec(text);
+    if (match) {
+      stringtotest.push([
+        text.slice(0, match.index),
+        match[0],
+        text.slice(match.index + match[0].length),
+      ]);
+    }
+  }
   return stringtotest;
 };
