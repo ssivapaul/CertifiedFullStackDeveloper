@@ -10,8 +10,6 @@ let generateArray = () => {
   return arr;
 };
 
-console.log(generateArray());
-
 let generateContainer = () => {
   return document.createElement("div");
 };
@@ -72,5 +70,13 @@ btnSort.addEventListener("click", () => {
     let newChildArray = generateContainer();
     arrayContainer.appendChild(newChildArray);
     fillArrContainer(newChildArray, newSpanContents); // Fill the swapped array
+    if (i == 3) {
+      spanArray = Array.from(children[i + 1].children);
+      spanContents = spanArray.map((child) => Number(child.textContent));
+      if (
+        !spanContents.every((val, index) => val === originalSpanContents[index])
+      ) {
+      }
+    }
   }
 });
