@@ -1,0 +1,23 @@
+Build a Permutation Generator
+In this lab, you will build a permutation generator that will take a string and return all possible permutations of the characters in the string. For example, the possible permutations of the string cat are cat, cta, act, atc, tac, and tca.
+
+Objective: Fulfill the user stories below and get all the tests to pass to complete the lab.
+
+User Stories:
+
+You should create a function named permuteString.
+The permuteString function should take three parameters- a string, a prefix value and an empty array for storing and returning the results. The prefix value would accumulate characters to form a permutation.
+Inside the function, you should check if the length of the passed string is 0. If it is, push the current prefix to the results and return the results.
+Iterate over each character in the input string and for each iteration, remove the current character from the string and call the permuteString function recursively with updated arguments to build the remaining permutations.
+You should return the final results array.
+You should ensure that the permutations are unique by removing duplicates.
+
+Tests
+Passed:1. You should have a function permuteString.
+Passed:2. You should use recursion in your permuteString function.
+Failed:3. permuteString("far") should return [ "far", "fra", "afr", "arf", "rfa", "raf" ].
+Failed:4. permuteString("fcc") should return [ "fcc", "cfc", "ccf" ].
+Failed:5. permuteString("p") should return [ "p" ].
+Failed:6. permuteString("") should return [""].
+Failed:7. permuteString("walk") should return ["walk", "wakl", "wlak", "wlka", "wkla", "wkal", "awlk", "awkl", "alwk", "alkw", "aklw", "akwl", "lawk", "lakw", "lwak", "lwka", "lkaw", "lkwa", "kawl", "kalw", "kwal", "kwla", "klaw", "klwa"]. `.
+Failed:8. permuteString should return the correct results.
