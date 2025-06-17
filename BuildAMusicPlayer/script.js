@@ -3,6 +3,8 @@ const playButton = document.getElementById("play");
 const pauseButton = document.getElementById("pause");
 const nextButton = document.getElementById("next");
 const previousButton = document.getElementById("previous");
+const playingSong = document.getElementById("player-song-title");
+const songArtist = document.getElementById("player-song-artist");
 const allSongs = [
   {
     id: 0,
@@ -95,6 +97,8 @@ const playSong = (id, start = true) => {
   }
   userData.currentSong = song;
   playButton.classList.add("playing");
+
+  highlightCurrentSong();
   audio.play();
 };
 
@@ -133,6 +137,26 @@ const playNextSong = () => {
     userData.songCurrentTime = 0;
     pauseSong();
   }
+};
+
+const setPlayerDisplay = () => {
+  const currentTitle = userData.currentSong?.title;
+  const currentArtist = userData.currentSong?.artist;
+
+  playingSong.textContent = currentTitle ? currentTitle : "";
+  songArtist.textContent = currentArtist ? currentArtist : "";
+};
+
+const highlightCurrentSong = () => {
+  const previousCurrentSong = document.querySelector(
+    '.playlist-song[aria-current="true"]'
+  );
+  previousCurrentSong?.removeAttribute("aria-current");
+  const songToHighlight = document.getElementById(
+    `song-${userData.currentSong?.id}`
+  );
+
+  songToHighlight?.setAttribute("aria-current", "true");
 };
 
 playButton.addEventListener("click", () => {
