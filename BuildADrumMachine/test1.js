@@ -1,6 +1,3 @@
-
-/*
-
 document.querySelectorAll(".drum-pad").forEach((drumPad) => {
   drumPad.addEventListener("click", () => {
     let audio = drumPad.querySelector("audio");
@@ -27,30 +24,4 @@ window.addEventListener("keydown", (event) => {
   audio.play();
   display.textContent = audio.parentNode.id;
   display.style.display = "flex";
-});
-
-*/
-
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  const display = document.getElementById("display");
-
-  document.querySelectorAll(".drum-pad").forEach((drumPad) => {
-    drumPad.addEventListener("click", () => {
-      const audio = drumPad.querySelector("audio");
-      audio.currentTime = 0;
-      audio.play();
-      display.textContent = drumPad.id;
-      display.style.display = "flex";
-    });
-  });
-
-  document.addEventListener("keydown", (event) => {
-    const key = event.key.toUpperCase();
-    const audio = document.getElementById(key);
-    if (!audio) return;
-    const drumPad = audio.parentElement;
-    if (drumPad) drumPad.click(); // This triggers the existing click handler
-  });
 });
