@@ -1,73 +1,72 @@
-const ballerina = {
-  commonName: "Spanish lavender",
-  scientificName: "Lavandula stoechas",
-  cultivar: "Ballerina",
-};
+let poll = new Map();
 
-const prettyPolly = {
-  commonName: "Spanish lavender",
-  scientificName: "Lavandula stoechas",
-  cultivar: "Pretty Polly",
-};
-
-const willowVale = {
-  commonName: "Spanish lavender",
-  scientificName: "Lavandula stoechas",
-  cultivar: "Willow Vale",
-};
-
-const hidcote = {
-  commonName: "English lavender",
-  scientificName: "Lavandula angustifolia",
-  cultivar: "Hidcote",
-};
-
-const imperialGem = {
-  commonName: "English lavender",
-  scientificName: "Lavandula angustifolia",
-  cultivar: "Imperial Gem",
-};
-
-const royalCrown = {
-  commonName: "French lavender",
-  scientificName: "Lavandula dentata",
-  cultivar: "Royal Crown",
-};
-
-const catalog = new Map();
-catalog.set(ballerina, { small: 20, medium: 15, large: 12 });
-catalog.set(prettyPolly, { small: 31, medium: 14, large: 24 });
-catalog.set(willowVale, { small: 3, medium: 5, large: 0 });
-catalog.set(hidcote, { small: 33, medium: 13, large: 18 });
-catalog.set(imperialGem, { small: 19, medium: 35, large: 28 });
-catalog.set(royalCrown, { small: 40, medium: 22, large: 9 });
-
-const sellPlants = (plant, size, potsNo) => {
-  if (!catalog.has(plant)) return "Item not found.";
-  const name = `${plant.scientificName} '${plant.cultivar}'`;
-  const pots = catalog.get(plant);
-  if (pots[size] - potsNo < 0) {
-    return `Not enough ${size} size pots for ${name}. Only ${pots[size]} left.`;
+let addOption = (option) => {
+  if (!option) {
+    return "Option cannot be empty.";
   }
-  pots[size] -= potsNo;
-  return `Catalog successfully updated.`;
+  if (!poll.has(option)) {
+    poll.set(option, new Set());
+    return `Option "${option}" added to the poll.`;
+  } else {
+    return `Option "${option}" already exists.`;
+  }
 };
 
-const removePlant = (plant) => catalog.delete(plant);
+let vote = (option, voterId) => {
+  if (!poll.has(option)) {
+    return `Option "${option}" does not exist.`;
+  } else {
+    if (poll.get(option).has(voterId)) {
+      return `Voter ${voterId} has already voted for "${option}".`;
+    } else {
+      poll.get(option).add(voterId);
+      return `Voter ${voterId} voted for "${option}".`;
+    }
+  }
+};
+/*
+let displayResults = () => {
+  const p = Array.from(poll.entries());
+  let result = 'Poll Results:\n'
+  for(let i = 0; i < p.length - 1; i++) {
+    const [key, [...value]] = p[i];
+    result += `${key}: ${value.length} votes\n`
+  }
+  const [key, [...value]] = p[p.length - 1];
+  result += `${key}: ${value.length} votes`
+  return result
+}
+*/
 
-const displayCatalog = () => {
-  let catalogString = "";
-  catalog.forEach((val, key) => {
-    catalogString += `${key.scientificName} '${key.cultivar}': ${val.small} S, ${val.medium} M, ${val.large} L
-`;
+let displayResults = () => {
+  let result = "Poll Results:\n";
+  let lines = [];
+  poll.forEach((v, k) => {
+    lines.push(`${k}: ${v.size} votes`);
   });
-  return catalogString;
+  return result + lines.join("\n");
 };
-const displayPlantsSet = () => {
-  let commonname = [];
-  catalog.forEach((k, v) => commonname.push(v.commonName));
-  const catalogSet = new Set(commonname);
-  return catalogSet;
-};
-const plantsSet = displayPlantsSet();
-console.log(plantsSet);
+
+console.log("------------------------");
+console.log(addOption("Turkey"));
+console.log(addOption("France"));
+console.log(addOption("Spain"));
+console.log(addOption("Spain"));
+console.log(addOption("Germany"));
+
+console.log(vote("Turkey", 23));
+console.log(vote("Turkey", 5));
+console.log(vote("Turkey", 35));
+console.log(vote("Germany", 1));
+console.log(vote("Spain", 15));
+console.log(vote("France", 19));
+console.log(vote("Spain", 5));
+console.log(vote("Germany", 16));
+console.log(vote("Spain", 35));
+console.log(vote("France", 39));
+console.log(vote("France", 50));
+console.log(vote("Germany", 10));
+
+console.log("----------------------");
+console.log(displayResults());
+console.log(JSON.stringify(displayResults()));
