@@ -1,0 +1,15 @@
+body {
+    padding: 50px 0px;
+    margin: 0px auto;
+    width: 50vw;
+    min-height: calc(100vh - 100px);
+    border: 2px solid red;
+  }
+  
+  hr {
+    width: 75%;
+  }
+  
+  section{
+    width: 75%;
+  }
