@@ -1,0 +1,97 @@
+html, .container{
+    display: flex;
+    justify-content: center;
+    font-family: sans-serif;
+  }
+  
+  .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height:700px;
+    width: 500px;
+    margin: 50px 0px;
+    border-radius: 20px;
+    background-color: #eee;
+  }
+  
+  form{
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    height: 500px;
+    padding: 20px;
+  }
+  #name{
+    margin-top: 5px;
+    margin-bottom: 15px;
+    height: 25px;
+  }
+  
+  #email{
+    margin-top: 5px;
+    margin-bottom: 15px;
+    height: 25px;
+  }
+  
+  #position{
+    margin-top: 5px;
+    margin-bottom: 15px;
+    height: 30px;
+  }
+  
+  #message{
+    margin-top: 5px;
+    margin-bottom: 15px;
+    height: 150px;
+  }
+  
+  #submit-btn{
+    font-size: 1.2rem;
+    margin-top: 5px;
+    height: 40px;
+    background-color: lightblue;
+    border-radius: 10px;
+    border: none;
+  }
+  
+  input:focus,
+  textarea:focus {
+    border-color: green;
+  }
+  
+  input:invalid,
+  select:invalid,
+  textarea:invalid {
+    border-color: red;
+  }
+  
+  input:focus,
+  textarea:focus {
+    border-color: orange;
+  }
+  
+  input:valid,
+  select:valid,
+  textarea:valid {
+    border-color: green;
+  }
+  button:hover{
+    background-color: orange;
+  }
+  
+  .radio-group input[type="radio"]:checked{
+    background-color: orange;
+    border-color: green;
+    box-shadow: 2px 2px 5px grey;
+    color: green;
+  }
+  
+  .radio-group input[type="radio"]:checked+label{
+    color: green;
+  }
+  
+  input:first-of-type {
+    background-color: #eef;
+  }
+  
