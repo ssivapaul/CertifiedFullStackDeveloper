@@ -1,0 +1,71 @@
+html{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+  }
+  
+  .form-container{
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+    width: 480px;
+    height: auto;
+    padding: 10px;
+    background-color: rgb(200, 250, 255, .9)
+  }
+  
+  form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 450px;
+    height: auto;
+    padding: 20px;
+    margin: 10px 0;
+  }
+  
+  input{
+    width: 400px;
+    padding: 5px;
+    border-radius: 10px;
+    height: 30px;
+    margin: 5px 0 20px 0;
+    border: none;
+  }
+  
+  
+  
+  label{
+    margin: 0 0 5px 0;
+    color: #111;
+  }
+  
+  textarea {
+    width: 400px;
+    min-height: 100px;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 15px;
+    text-align: left;
+    vertical-align: top;
+    resize: vertical; /* allows user to resize height */
+    border: none;
+  }
+  
+  button{
+    width: 100px;
+    height: 35px;
+    border-radius: 10px;
+    border: none;
+    background-color: black;
+    color: white;
+    font-size: 1.2rem;
+  }
+  
+  button:hover{
+    background-color: #F00;
+    cursor: pointer;
+  }
