@@ -54,3 +54,32 @@ document.addEventListener("DOMContentLoaded", () => {
     if (drumPad) drumPad.click(); // This triggers the existing click handler
   });
 });
+
+/*
+
+document.addEventListener("DOMContentLoaded", () => {
+  const display = document.getElementById("display");
+  document.querySelectorAll(".drum-pad").forEach((drumPad) => {
+    drumPad.addEventListener("click", () => {
+      const audio = drumPad.querySelector("audio");
+      if (!audio) return;
+      playAudio(audio)
+    });
+  });
+
+  document.addEventListener("keydown", (event) => {
+    const key = event.key.toUpperCase();
+    const audio = document.getElementById(key);
+    if (!audio) return;
+    playAudio(audio)
+  });
+
+  const playAudio = (audio) => {
+    audio.currentTime = 0;
+    audio.play();
+    display.textContent = audio.parentElement.id;
+    display.style.display = "flex";
+  }
+});
+
+*/

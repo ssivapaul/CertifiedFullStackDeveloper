@@ -1,0 +1,86 @@
+sYour setup is mostly good, but there are a couple of key issues that might cause innerHTML-related bugs or unexpected behavior, especially in the sorting logic:
+
+✅ TL;DR Fixes
+i = -1 inside the loop is modifying the for loop index manually. This is not safe in a for loop. Use a while loop instead.
+
+You are overwriting newChildArray inside if(i == 3), which causes confusion.
+
+highlightCurrentEls(newChildArray, i) may throw an error if i+1 exceeds the bounds.
+
+Re-check that you're always cloning the latest state correctly, not stale elements.
+
+🔍 Specific Problem Breakdown
+1. innerHTML Copying May Be Buggy Here
+
+let content = newChildArray.innerHTML
+let newChildArray = generateContainer()
+newChildArray.innerHTML = content
+This creates a brand new div and injects the previous HTML inside, but it:
+
+Reuses the variable name, confusing the logic.
+
+Doesn’t preserve style/border from highlights like highlightCurrentEls.
+
+✅ Instead:
+
+let finalArray = generateContainer();
+fillArrContainer(finalArray, spanContents);
+finalArray.style.border = '4px solid darkblue';
+arrayContainer.appendChild(finalArray);
+2. Manual Index Reset (i = -1) inside a for loop is risky
+This pattern:
+
+if (!spanContents.every(...)) {
+  i = -1;
+}
+…causes undefined behavior because the loop increments i regardless. Use a while loop instead.
+
+✅ Replace the loop:
+
+let i = 0;
+while (true) {
+  swapElements(spanContents, i);
+  const newChildArray = generateContainer();
+  arrayContainer.appendChild(newChildArray);
+  fillArrContainer(newChildArray, spanContents);
+  highlightCurrentEls(newChildArray, i);
+
+  if (i === 3) {
+    newChildArray.style.border = '2px solid blue';
+    const prev = Array.from(arrayContainer.children[arrayContainer.children.length - 4].children);
+    const prevValues = prev.map(child => Number(child.textContent));
+    if (!spanContents.every((val, idx) => val === prevValues[idx])) {
+      i = 0; // restart
+    } else {
+      const finalArr = generateContainer();
+      fillArrContainer(finalArr, spanContents);
+      finalArr.style.border = '4px solid darkblue';
+      arrayContainer.appendChild(finalArr);
+      break;
+    }
+  } else {
+    i++;
+  }
+}
+3. Potential Runtime Error in highlightCurrentEls
+If i == 4, i + 1 == 5 which is out of bounds for a 5-element array.
+
+✅ Fix:
+
+let highlightCurrentEls = (el, i) => {
+  if (i >= el.children.length - 1) return;
+  el.children[i].style.border = '2px dashed red';
+  el.children[i + 1].style.border = '2px dashed red';
+}
+✅ Summary: Recommended Changes
+Convert for loop to while for better control.
+
+Avoid mutating the loop index manually.
+
+Avoid overwriting newChildArray—use different variable names.
+
+Handle the i+1 edge case in highlights.
+
+Prefer regenerating DOM using fillArrContainer() over copying raw innerHTML.
+
+Would you like me to rewrite the complete working version of the JavaScript section based on these fixes?

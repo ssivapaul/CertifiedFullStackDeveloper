@@ -1,0 +1,75 @@
+
+Build a Set of Football Team Cards
+Build an app that is functionally similar to this example project. Try not to copy the example project, give it your own personal style.
+
+In this lab, you will build a set of football team cards. The user should be able to use the dropdown menu and filter between the different players based on their positions.
+
+Fulfill the user stories below and get all the tests to pass to complete the lab.
+
+User Stories:
+
+You should create a footballTeam object with the following properties: team, year, headCoach, players.
+
+The team property should contain the name of the team as a string.
+
+The year property should contain the year as a number.
+
+The headCoach property should contain the name of the head coach as a string.
+
+The players property should be an array containing at least four elements.
+
+Each element in the players array should be an object with properties name, position, isCaptain.
+
+The name property should contain the name of the player as a string.
+
+The position property should have one of the following values: "forward", "midfielder", "defender", or "goalkeeper".
+
+The isCaptain property should have value of a boolean. One of the players should have their isCaptain property set to true.
+
+You should display the coach, team and year values on the page. These values should be displayed in the HTML elements with the id values of head-coach, team and year.
+
+You should display the players data on the page inside the #player-cards element, each player should be displayed in a div with class of player-card, and nested in it, an h2 containing the name of the player, and (Captain) in case of the player being captain, and a p containing Position: and the position of the player.
+
+<div class="player-card">
+  <h2>Sergio Batista</h2>
+  <p>Position: midfielder</p>
+</div>
+<div class="player-card">
+  <h2>(Captain) Diego Maradona</h2>
+  <p>Position: midfielder</p>
+</div>
+When the dropdown menu is used to select one of the positions, only players of that position should be shown. If the "All Players" option is selected, then all of the players should display on the page.
+
+Run the Tests (Ctrl + Enter)
+Reset this lesson
+Get Help
+Tests
+Waiting:1. You should have a footballTeam variable.
+Waiting:2. The footballTeam variable should be an object with four properties: team, year, headCoach and players.
+Waiting:3. The team property should be a string.
+Waiting:4. The year property should be a number.
+Waiting:5. The headCoach property should be a string.
+Waiting:6. The players property should be an array of at least four objects, each object should have the keys name, position, isCaptain.
+Waiting:7. The name property should have value of a string.
+Waiting:8. The position property should have one of values "forward", "midfielder", "defender", or "goalkeeper".
+Waiting:9. The isCaptain property should have value of a boolean, and there should be only one captain.
+Waiting:10. You should display the coach, team and year values from the footballTeam object in the HTML elements with the id values of head-coach, team and year.
+Waiting:11. When the option All Players is selected, all players should be shown within #player-cards.
+Waiting:12. When the option Position Forward is selected, only forward players should be shown within #player-cards.
+Waiting:13. When the option Position Midfielder is selected, only midfielder players should be shown within #player-cards.
+Waiting:14. When the option Position Defender is selected, only defender players should be shown within #player-cards.
+Waiting:15. When the option Position Goalkeeper is selected, only goalkeeper players should be shown.
+
+    name: 'Sergio Batista',
+    position: 'midfielder',
+    isCaptain: false
+  }, {
+    name: 'Ricardo Bochini',
+    position: 'midfielder',
+    isCaptain: false
+  }, {
+    name: 'Claudio Borghi',
+    position: 'midfielder',
+
+
+Navigated to Build a Set of Football Team Cards

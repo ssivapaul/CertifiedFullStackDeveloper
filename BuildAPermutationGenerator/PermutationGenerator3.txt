@@ -1,0 +1,47 @@
+
+let permuteString = (str, prefix = '', result = []) => {
+  if(str.length == 0) {    
+      result.push(prefix);    
+  } 
+  str.split('').forEach((c, i) => {
+    let s = str.slice(0, i)+ str.slice(i+1)
+    let p = prefix + str[i]
+    permuteString (s, p, result)    
+  })
+  
+  return Array.from(new Set(result));
+}
+
+
+
+let str1 = 'far'
+let prefix1 = ''
+let result1 = []
+
+let per1 = permuteString(str1, '', []);
+console.log(per1)
+//----------------------------------
+let str2 = 'walk'
+let prefix2 = ''
+let result2 = []
+
+let per2 = permuteString(str2, '', []);
+console.log(per2)
+//-------------------------------------
+let str3 = 'p'
+let prefix3 = ''
+let result3 = []
+let per3 = permuteString(str3, '', []);
+console.log(per3)
+//---------------------------------------
+let str4 = 'fcc'
+let prefix4 = ''
+let result4 = []
+let per4 = permuteString(str4, '', []);
+console.log(per4)
+//--------------------------------------------
+let str5 = ""
+let prefix5 = ''
+let result5 = []
+let per5 = permuteString(str5, '', []);
+console.log(per5)

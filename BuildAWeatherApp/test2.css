@@ -1,0 +1,35 @@
+.callout-box {
+    background-color: #f0f9ff;
+    border: 2px solid #3b82f6;
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(59, 130, 246, 0.2);
+    margin: 2rem 0;
+  }
+  
+  .callout-box h2 {
+    color: #1d4ed8;
+    margin-bottom: 1rem;
+  }
+  
+  .callout-box p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .cta-button {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cta-button:hover {
+    background-color: #2563eb;
+  }
+  

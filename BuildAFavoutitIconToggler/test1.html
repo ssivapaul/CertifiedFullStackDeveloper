@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Favorite Icon Toggler</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body>
+    <p>
+      <span>Click me~!</span>
+      <span>Click me~!</span>
+      <span>Click me~!</span>
+      <span>Click me~!</span>
+    </p>
+    <script>
+      const p = document.querySelector("p");
+      p.addEventListener("click", (event) => {
+        event.target.style.color = "red";
+      });
+    </script>
+  </body>
+</html>
